@@ -33,18 +33,104 @@
     </header>
 
     <main>
-      <div class="wrap">
-        <section class="intro" aria-labelledby="intro-heading">
-          <p class="intro-label">Featured</p>
-          <h1 id="intro-heading">
-            Selected <span class="title-accent">work</span>
-          </h1>
-          <p class="intro-text">
-            Live projects on GitHub Pages, Netlify, and beyond — shipped clean
-            and fast.
-          </p>
-        </section>
+      <div class="wrap wrap--hero">
+        <div class="hero">
+          <section class="intro" aria-labelledby="intro-heading">
+            <p class="intro-label">Featured</p>
+            <h1 id="intro-heading">
+              Selected <span class="title-accent">work</span>
+            </h1>
+            <p class="intro-text">
+              Live projects on GitHub Pages, Netlify, and beyond — shipped clean
+              and fast.
+            </p>
+          </section>
 
+          <div class="lava-lamp" aria-hidden="true">
+            <svg
+              class="lava-lamp__svg"
+              viewBox="0 -18 152 354"
+              width="152"
+              height="354"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+            >
+              <defs>
+                <linearGradient
+                  id="lava-metal"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stop-color="#5c5c64" />
+                  <stop offset="45%" stop-color="#3d3d45" />
+                  <stop offset="100%" stop-color="#1e1e24" />
+                </linearGradient>
+                <linearGradient id="lava-glass" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(52,46,64,0.94)" />
+                  <stop offset="55%" stop-color="rgba(22,18,32,0.96)" />
+                  <stop offset="100%" stop-color="rgba(8,6,14,0.98)" />
+                </linearGradient>
+                <linearGradient id="lava-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
+                  <stop offset="35%" stop-color="rgba(255,255,255,0)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.04)" />
+                </linearGradient>
+                <clipPath id="lava-glass-clip" clipPathUnits="userSpaceOnUse">
+                  <path
+                    d="M 56 32 L 96 32 L 108 43 L 138 265 Q 142 285 128 293 L 24 293 Q 10 285 14 265 L 44 43 L 56 32 Z"
+                  />
+                </clipPath>
+              </defs>
+              <!-- Metal body (no cap); cap drawn last so it sits in front of glass/lava -->
+              <path
+                fill="url(#lava-metal)"
+                d="M 108 43 L 138 265 Q 142 285 128 293 L 102 311 L 138 335 L 14 335 L 50 311 L 24 293 Q 10 285 14 265 L 44 43 L 108 43 Z"
+              />
+              <path
+                fill="url(#lava-glass)"
+                d="M 56 32 L 96 32 L 108 43 L 138 265 Q 142 285 128 293 L 24 293 Q 10 285 14 265 L 44 43 L 56 32 Z"
+              />
+              <foreignObject
+                width="152"
+                height="336"
+                clip-path="url(#lava-glass-clip)"
+              >
+                <div
+                  xmlns="http://www.w3.org/1999/xhtml"
+                  class="lava-lamp__fo"
+                >
+                  <div class="lava-lamp__liquid">
+                    <div class="lava-lamp__blobs">
+                      <span class="lava-blob lava-blob--1"></span>
+                      <span class="lava-blob lava-blob--2"></span>
+                      <span class="lava-blob lava-blob--3"></span>
+                      <span class="lava-blob lava-blob--4"></span>
+                    </div>
+                  </div>
+                </div>
+              </foreignObject>
+              <path
+                fill="url(#lava-shine)"
+                d="M 56 32 L 96 32 L 108 43 L 138 265 Q 142 285 128 293 L 24 293 Q 10 285 14 265 L 44 43 L 56 32 Z"
+                style="pointer-events: none"
+              />
+              <!--
+                Lid: left/right corners as before; curved top Q (76,−14) between them.
+              -->
+              <path
+                class="lava-lamp__cap"
+                fill="url(#lava-metal)"
+                d="M 48.418 0 Q 76 -14 103.582 0 L 108 43 L 44 43 Z"
+                style="pointer-events: none"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
         <section id="work" class="work" aria-labelledby="work-heading">
           <h2 id="work-heading" class="work-title">Projects</h2>
           <ul class="project-list" role="list">
