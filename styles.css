@@ -10,6 +10,11 @@
   --accent: #38bdf8;
   --accent-dim: rgba(56, 189, 248, 0.45);
   --accent-glow: rgba(56, 189, 248, 0.12);
+  --live: #4ade80;
+  --live-bright: #86efac;
+  --live-border: rgba(74, 222, 128, 0.55);
+  --live-bg: rgba(74, 222, 128, 0.1);
+  --live-glow: rgba(74, 222, 128, 0.22);
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 20px;
@@ -280,6 +285,25 @@ main {
 
 .pill-muted {
   color: var(--text-soft);
+}
+
+.pill-live {
+  color: var(--live-bright);
+  border-color: var(--live-border);
+  background: var(--live-bg);
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.08);
+}
+
+.pill-live:hover {
+  color: #bbf7d0;
+  border-color: var(--live);
+  background: rgba(74, 222, 128, 0.16);
+  text-decoration: none;
+  box-shadow: 0 0 24px var(--live-glow);
+}
+
+.pill-live:focus-visible {
+  outline-color: var(--live);
 }
 
 .pill[aria-disabled="true"] {
