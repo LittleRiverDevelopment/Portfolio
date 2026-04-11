@@ -34,18 +34,9 @@ html {
   scroll-padding-top: calc(
     env(safe-area-inset-top, 0px) + var(--top-bar-height) + 0.75rem
   );
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font);
-  font-size: 1.0625rem;
-  line-height: 1.55;
-  color: var(--text);
-  background: var(--bg-deep);
+  /* Page paint on the root: Safari desktop often fails to sample backdrop-filter against body-only backgrounds in flex layouts */
+  min-height: 100%;
+  background-color: var(--bg-deep);
   background-image: radial-gradient(
       ellipse 100% 80% at 50% -40%,
       rgba(56, 189, 248, 0.14),
@@ -57,6 +48,19 @@ body {
       transparent 45%
     ),
     radial-gradient(ellipse 50% 40% at 0% 100%, rgba(56, 189, 248, 0.06), transparent 50%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--text);
+  background: transparent;
 }
 
 a {
@@ -108,7 +112,6 @@ a[aria-disabled="true"] {
 }
 
 .top {
-  /* Safari/WebKit: backdrop-filter is unreliable on position:sticky; fixed composites correctly */
   position: fixed;
   left: 0;
   right: 0;
@@ -116,12 +119,37 @@ a[aria-disabled="true"] {
   z-index: 50;
   padding-top: env(safe-area-inset-top, 0px);
   border-bottom: 1px solid var(--border);
-  background: rgba(7, 7, 8, 0.72);
+  background: transparent;
+  isolation: isolate;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Dedicated layer: WebKit composites backdrop more reliably than on the same box as border/padding */
+.top__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(7, 7, 8, 0.72);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .top__backdrop {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(12, 12, 14, 0.97);
+  }
 }
 
 .top-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
