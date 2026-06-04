@@ -54,9 +54,9 @@
           <div class="lava-lamp" aria-hidden="true">
             <svg
               class="lava-lamp__svg"
-              viewBox="0 -18 152 354"
+              viewBox="0 0 152 336"
               width="152"
-              height="354"
+              height="336"
               xmlns="http://www.w3.org/2000/svg"
               focusable="false"
             >
@@ -82,32 +82,27 @@
                   <stop offset="35%" stop-color="rgba(255,255,255,0)" />
                   <stop offset="100%" stop-color="rgba(255,255,255,0.04)" />
                 </linearGradient>
-                <!-- Glass vessel: narrow neck, bulge, pinch toward the base -->
+                <!-- Brushed-aluminum look for cap and base -->
+                <linearGradient id="lava-silver" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#8b9098" />
+                  <stop offset="20%" stop-color="#e9ebee" />
+                  <stop offset="48%" stop-color="#c0c4ca" />
+                  <stop offset="74%" stop-color="#eef0f3" />
+                  <stop offset="100%" stop-color="#7c828b" />
+                </linearGradient>
+                <!-- Glass vessel: long cone, narrow at the top, widest where it meets the base -->
                 <clipPath id="lava-glass-clip" clipPathUnits="userSpaceOnUse">
                   <path
-                    d="M 60 46 C 50 90 22 150 24 200 C 26 235 44 248 52 250 L 100 250 C 108 248 126 235 128 200 C 130 150 102 90 92 46 Z"
+                    d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
                   />
                 </clipPath>
               </defs>
-              <!-- Base / pedestal (drawn first so the glass sits in front of it) -->
-              <path
-                fill="url(#lava-metal)"
-                d="M 52 250 C 50 270 28 296 18 318 L 134 318 C 124 296 102 270 100 250 Z"
-              />
-              <rect
-                x="14"
-                y="316"
-                width="124"
-                height="8"
-                rx="3"
-                fill="url(#lava-metal)"
-              />
-              <!-- Glass vessel fill -->
+              <!-- Glass vessel fill (drawn first so the base sits in front of it) -->
               <path
                 fill="url(#lava-glass)"
-                stroke="rgba(255,255,255,0.10)"
+                stroke="rgba(255,255,255,0.12)"
                 stroke-width="1.5"
-                d="M 60 46 C 50 90 22 150 24 200 C 26 235 44 248 52 250 L 100 250 C 108 248 126 235 128 200 C 130 150 102 90 92 46 Z"
+                d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
               />
               <foreignObject
                 width="152"
@@ -131,20 +126,27 @@
               <!-- Glass highlight -->
               <path
                 fill="url(#lava-shine)"
-                d="M 60 46 C 50 90 22 150 24 200 C 26 235 44 248 52 250 L 100 250 C 108 248 126 235 128 200 C 130 150 102 90 92 46 Z"
+                d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
                 style="pointer-events: none"
               />
-              <!-- Neck collar -->
+              <!-- Base: in front of the glass; top edge aligns with the glass widest point -->
               <path
-                fill="url(#lava-metal)"
-                d="M 60 48 L 58 33 L 94 33 L 92 48 Z"
-                style="pointer-events: none"
+                fill="url(#lava-silver)"
+                d="M 40 248 C 40 274 52 290 58 302 L 94 302 C 100 290 112 274 112 248 Z"
               />
-              <!-- Cap / finial with rounded dome top -->
+              <rect
+                x="36"
+                y="301"
+                width="80"
+                height="21"
+                rx="7"
+                fill="url(#lava-silver)"
+              />
+              <!-- Cap: flat-top cone; bottom edge aligns with the glass neck width -->
               <path
                 class="lava-lamp__cap"
-                fill="url(#lava-metal)"
-                d="M 58 33 L 64 5 Q 76 -12 88 5 L 94 33 Z"
+                fill="url(#lava-silver)"
+                d="M 65 16 L 87 16 L 94 68 L 58 68 Z"
                 style="pointer-events: none"
               />
             </svg>
