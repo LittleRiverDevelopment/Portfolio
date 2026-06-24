@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="About Little River Development — a launchpad for passion projects built with AI tools."
+    />
+    <title>About — Little River Development</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#about">Skip to about</a>
+
+    <header class="top">
+      <div class="top__backdrop" aria-hidden="true"></div>
+      <div class="wrap top-inner">
+        <a class="brand" href="./">Little River Development</a>
+        <nav class="top-nav" aria-label="Site">
+          <a class="nav-link" href="index.html#work">Projects</a>
+          <a
+            class="nav-btn"
+            href="https://github.com/LittleRiverDevelopment/Portfolio"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section id="about" class="about about--page" aria-labelledby="about-heading">
+          <p class="intro-label">About</p>
+          <h1 id="about-heading" class="about-heading">
+            Little River <span class="title-accent">Development</span>
+          </h1>
+          <div class="about-card">
+            <p class="about-text">
+              Little River Development was created in February of 2026 as a way
+              to categorize, experiment, and build concepts that have come to me
+              as a designer. Classically, I have been trained in backend
+              development and data manipulation. This is a launchpad for all the
+              ideas that come to me, built with the help of AI tools.
+            </p>
+            <p class="about-text">
+              In this day and age there is no barrier to entry when it comes to
+              creating, and Little River Development serves as a portfolio of
+              passion projects that I have built. Thanks for visiting!
+            </p>
+          </div>
+          <p class="about-back">
+            <a class="nav-link" href="index.html#work">← Back to projects</a>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bottom">
+      <div class="wrap">
+        <p class="bottom-text">
+          © <span id="year"></span> Little River Development
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

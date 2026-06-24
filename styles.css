@@ -168,6 +168,23 @@ a[aria-disabled="true"] {
   color: #fff;
 }
 
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.nav-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
 .nav-btn {
   display: inline-flex;
   align-items: center;
@@ -231,29 +248,24 @@ main {
   );
 
   justify-self: center;
+  position: relative;
   width: 152px;
+  height: 336px;
   line-height: 0;
   filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.5));
 }
 
+/* Three stacked layers (DOM order = paint order): glass, lava, then cap/base */
 .lava-lamp__svg {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
-  vertical-align: top;
+  height: 100%;
 }
 
-/* foreignObject host: fills SVG so lava clips to glass path */
-.lava-lamp__fo {
-  width: 152px;
-  height: 336px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  background: transparent;
-}
-
+/* Lava sits between the back and front SVGs, clipped to the glass cone.
+   CSS clip-path: path() avoids SVG foreignObject, which is unreliable in Safari. */
 .lava-lamp__liquid {
   position: absolute;
   inset: 0;
@@ -263,6 +275,12 @@ main {
     #24061f 0%,
     #100515 50%,
     #060208 100%
+  );
+  -webkit-clip-path: path(
+    "M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
+  );
+  clip-path: path(
+    "M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
   );
 }
 
@@ -487,6 +505,50 @@ main {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-soft);
+}
+
+.about {
+  margin-top: 3rem;
+}
+
+.about--page {
+  margin-top: 0;
+}
+
+.about-heading {
+  margin: 0.35rem 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.about-back {
+  margin: 1.5rem 0 0;
+}
+
+.about-card {
+  padding: 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 540px) {
+  .about-card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.about-text {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-text + .about-text {
+  margin-top: 1rem;
 }
 
 .project-list {

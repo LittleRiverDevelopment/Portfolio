@@ -28,6 +28,7 @@
       <div class="wrap top-inner">
         <a class="brand" href="./">Little River Development</a>
         <nav class="top-nav" aria-label="Site">
+          <a class="nav-link" href="about.html">About</a>
           <a
             class="nav-btn"
             href="https://github.com/LittleRiverDevelopment/Portfolio"
@@ -52,26 +53,14 @@
           </section>
 
           <div class="lava-lamp" aria-hidden="true">
+            <!-- Back layer: glass vessel fill -->
             <svg
-              class="lava-lamp__svg"
+              class="lava-lamp__svg lava-lamp__svg--back"
               viewBox="0 0 152 336"
-              width="152"
-              height="336"
               xmlns="http://www.w3.org/2000/svg"
               focusable="false"
             >
               <defs>
-                <linearGradient
-                  id="lava-metal"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stop-color="#5c5c64" />
-                  <stop offset="45%" stop-color="#3d3d45" />
-                  <stop offset="100%" stop-color="#1e1e24" />
-                </linearGradient>
                 <linearGradient id="lava-glass" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stop-color="rgba(52,46,64,0.94)" />
                   <stop offset="55%" stop-color="rgba(22,18,32,0.96)" />
@@ -90,46 +79,40 @@
                   <stop offset="74%" stop-color="#eef0f3" />
                   <stop offset="100%" stop-color="#7c828b" />
                 </linearGradient>
-                <!-- Glass vessel: long cone, narrow at the top, widest where it meets the base -->
-                <clipPath id="lava-glass-clip" clipPathUnits="userSpaceOnUse">
-                  <path
-                    d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
-                  />
-                </clipPath>
               </defs>
-              <!-- Glass vessel fill (drawn first so the base sits in front of it) -->
               <path
                 fill="url(#lava-glass)"
                 stroke="rgba(255,255,255,0.12)"
                 stroke-width="1.5"
                 d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
               />
-              <foreignObject
-                width="152"
-                height="336"
-                clip-path="url(#lava-glass-clip)"
-              >
-                <div
-                  xmlns="http://www.w3.org/1999/xhtml"
-                  class="lava-lamp__fo"
-                >
-                  <div class="lava-lamp__liquid">
-                    <div class="lava-lamp__blobs">
-                      <span class="lava-blob lava-blob--1"></span>
-                      <span class="lava-blob lava-blob--2"></span>
-                      <span class="lava-blob lava-blob--3"></span>
-                      <span class="lava-blob lava-blob--4"></span>
-                    </div>
-                  </div>
-                </div>
-              </foreignObject>
-              <!-- Glass highlight -->
+            </svg>
+
+            <!-- Middle layer: animated lava, clipped to the glass cone via CSS (Safari-safe) -->
+            <div class="lava-lamp__liquid">
+              <div class="lava-lamp__blobs">
+                <span class="lava-blob lava-blob--1"></span>
+                <span class="lava-blob lava-blob--2"></span>
+                <span class="lava-blob lava-blob--3"></span>
+                <span class="lava-blob lava-blob--4"></span>
+              </div>
+            </div>
+
+            <!-- Front layer: glass highlight, base, and cap -->
+            <svg
+              class="lava-lamp__svg lava-lamp__svg--front"
+              viewBox="0 0 152 336"
+              xmlns="http://www.w3.org/2000/svg"
+              focusable="false"
+            >
+              <!-- Glass highlight + rim over the lava -->
               <path
                 fill="url(#lava-shine)"
+                stroke="rgba(255,255,255,0.14)"
+                stroke-width="1.5"
                 d="M 58 66 C 54 120 44 210 40 250 C 40 256 43 260 49 260 L 103 260 C 109 260 112 256 112 250 C 108 210 98 120 94 66 Z"
-                style="pointer-events: none"
               />
-              <!-- Base: in front of the glass; top edge aligns with the glass widest point -->
+              <!-- Base: top edge aligns with the glass widest point -->
               <path
                 fill="url(#lava-silver)"
                 d="M 40 248 C 40 274 52 290 58 302 L 94 302 C 100 290 112 274 112 248 Z"
@@ -147,7 +130,6 @@
                 class="lava-lamp__cap"
                 fill="url(#lava-silver)"
                 d="M 65 16 L 87 16 L 94 68 L 58 68 Z"
-                style="pointer-events: none"
               />
             </svg>
           </div>
